@@ -157,5 +157,13 @@ Avoid placing large files like EAF in `site-lisp` to prevent slow startup."
 (require 'init-elixir)
 (require 'init-web)
 
+;; prerequisits
+;; install node
+;; M-x copilot-install-server
+;; M-x copilot-login
+(require 'init-copilot)
+(require 'init-misc)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; init.el ends here
+(put 'upcase-region 'disabled nil)
