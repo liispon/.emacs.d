@@ -77,7 +77,7 @@
            ("?" . dashboard-hydra/body))
     :hook (dashboard-mode . (lambda () (setq-local frame-title-format nil)))
     :init
-    (setq dashboard-banner-logo-title "CENTAUR EMACS - Enjoy Programming & Writing"
+    (setq dashboard-banner-logo-title "EMACS - Enjoy Programming & Writing"
           dashboard-startup-banner (or centaur-logo 'official)
           dashboard-page-separator "\n\f\n"
           dashboard-projects-backend 'project-el
@@ -98,8 +98,9 @@
                                       dashboard-insert-newline
                                       dashboard-insert-init-info
                                       dashboard-insert-items
-                                      dashboard-insert-newline
-                                      dashboard-insert-footer)
+                                      ;; dashboard-insert-newline
+                                      ;; dashboard-insert-footer
+                                      )
 
           dashboard-display-icons-p #'icons-displayable-p
           dashboard-set-file-icons centaur-icon
