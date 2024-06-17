@@ -49,10 +49,14 @@
     (setq w32-lwindow-modifier 'super     ; Left Windows key
           w32-apps-modifier 'hyper)       ; Menu/App key
     (w32-register-hot-key [s-t]))
+   (sys/mac-ns-p
+    ;; Compatible with Emacs Mac port
+    (setq mac-option-modifier 'super
+          mac-command-modifier 'meta))
    (sys/mac-port-p
     ;; Compatible with Emacs Mac port
-    (setq mac-option-modifier 'meta
-          mac-command-modifier 'super)
+    (setq mac-option-modifier 'super
+          mac-command-modifier 'meta)
     (bind-keys ([(super a)] . mark-whole-buffer)
                ([(super c)] . kill-ring-save)
                ([(super l)] . goto-line)
@@ -213,7 +217,8 @@
       adaptive-fill-first-line-regexp "^* *$"
       sentence-end "\\([。！？]\\|……\\|[.?!][]\"')}]*\\($\\|[ \t]\\)\\)[ \t\n]*"
       sentence-end-double-space nil
-      word-wrap-by-category t)
+      word-wrap-by-category t
+      warning-minimum-level :error)
 
 ;; Frame
 (when (display-graphic-p)
