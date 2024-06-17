@@ -58,10 +58,12 @@
 (setq fancy-splash-image centaur-logo)
 
 ;; Title
-(setq frame-title-format '("Centaur Emacs - %b")
+(setq frame-title-format '("Emacs - %b")
       icon-title-format frame-title-format)
 
 (when (and sys/mac-ns-p sys/mac-x-p)
+  (add-to-list 'default-frame-alist '(width  . 136))
+  (add-to-list 'default-frame-alist '(height . 69))
   (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
   (add-to-list 'default-frame-alist '(ns-appearance . dark))
   (add-hook 'server-after-make-frame-hook
@@ -81,7 +83,7 @@
       ;; Make certain buffers grossly incandescent
       (use-package solaire-mode
         :hook (after-init . solaire-global-mode))
-
+      ;; (use-package color-theme-sanityinc-tomorrow)
       ;; Excellent themes
       (use-package doom-themes
         :custom
@@ -282,7 +284,7 @@
 ;; Show line numbers
 (use-package display-line-numbers
   :ensure nil
-  :hook ((prog-mode yaml-mode conf-mode) . display-line-numbers-mode)
+  ;; :hook ((prog-mode yaml-mode conf-mode) . display-line-numbers-mode)
   :init (setq display-line-numbers-width-start t))
 
 ;; Suppress GUI features
