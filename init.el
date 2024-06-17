@@ -156,5 +156,7 @@ Otherwise the startup will be very slow."
 (require 'init-elixir)
 (require 'init-web)
 
+;; (require 'init-copilot)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; init.el ends here
+(put 'upcase-region 'disabled nil)
