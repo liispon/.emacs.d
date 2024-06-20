@@ -62,6 +62,8 @@
       icon-title-format frame-title-format)
 
 (when (and sys/mac-ns-p sys/mac-x-p)
+  (add-to-list 'default-frame-alist '(width  . 136))
+  (add-to-list 'default-frame-alist '(height . 69))
   (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
   (add-to-list 'default-frame-alist '(ns-appearance . dark))
   (add-hook 'server-after-make-frame-hook

@@ -208,7 +208,8 @@
       adaptive-fill-first-line-regexp "^* *$"
       sentence-end "\\([。！？]\\|……\\|[.?!][]\"')}]*\\($\\|[ \t]\\)\\)[ \t\n]*"
       sentence-end-double-space nil
-      word-wrap-by-category t)
+      word-wrap-by-category t
+      warning-minimum-level :error)
 
 ;; Frame
 (when (display-graphic-p)
