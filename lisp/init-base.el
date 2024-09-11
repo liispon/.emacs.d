@@ -250,7 +250,13 @@
            ("C-x K"   . delete-this-file)
            ("C-c C-l" . reload-init-file))
 
-(provide 'init-base)
+(bind-keys*
+ ("C-; C-;" . comment-or-uncomment-region)
+ ("C-c l" . pwd)
+ ("M-`" . other-frame)
+ ("<f5>" . revert-buffer)
+ )
 
+(provide 'init-base)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; init-base.el ends here
