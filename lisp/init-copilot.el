@@ -12,7 +12,6 @@
 
 ;; copilot
 (use-package copilot
-  :load-path (lambda () (expand-file-name "copilot.el" user-emacs-directory))
   ;; don't show in mode line
   :diminish
   :init

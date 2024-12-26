@@ -156,7 +156,12 @@ Otherwise the startup will be very slow."
 (require 'init-elixir)
 (require 'init-web)
 
-;;(require 'init-copilot)
+;; prerequisits
+;; install node
+;; M-x copilot-install-server
+;; M-x copilot-login
+(require 'init-copilot)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; init.el ends here
 (put 'upcase-region 'disabled nil)
