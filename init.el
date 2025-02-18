@@ -161,6 +161,7 @@ Otherwise the startup will be very slow."
 ;; M-x copilot-install-server
 ;; M-x copilot-login
 (require 'init-copilot)
+(require 'init-misc)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; init.el ends here

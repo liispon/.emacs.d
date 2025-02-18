@@ -12,7 +12,10 @@
 
 ;; copilot
 (use-package copilot
-  ;; don't show in mode line
+  ;; :vc (:url "https://github.com/copilot-emacs/copilot.el"
+  ;;           :rev :newest
+  ;;           :branch "main")
+  ;;   ;; don't show in mode line
   :diminish
   :init
   (setq copilot-indent-offset-warning-disable t)
@@ -47,15 +50,6 @@
          (setq copilot-proxy-port (cdr parts)))
        (setq copilot-network-proxy '(:host 'copilot-proxy-host :port 'copilot-proxy-port))
        )))
-
-;; smartparens
-(use-package smartparens
-  :config
-  (setq sp-base-key-bindings 'paredit
-        sp-highlight-pair-overlay nil
-        smartparens-global-mode t
-        show-smartparens-global-mode t)
-  (sp-use-paredit-bindings))
 
 (provide 'init-copilot)
 
