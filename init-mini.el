@@ -106,8 +106,8 @@
 (add-hook 'minibuffer-setup-hook #'subword-mode)
 
 ;; Completion
-(when (fboundp 'global-completion-preview-mode)
-  (global-completion-preview-mode 1))
+(when (fboundp 'completion-preview-mode)
+  (completion-preview-mode 1))
 
 (if (fboundp 'fido-mode)
     (progn
