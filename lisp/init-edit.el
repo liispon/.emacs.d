@@ -388,7 +388,7 @@
   :bind (:map hs-minor-mode-map
          ("C-~" . hideshow-hydra/body)
          ("C-S-<escape>" . hideshow-hydra/body))
-  :hook (prog-mode . hs-minor-mode)
+  ;;:hook (prog-mode . hs-minor-mode)
   :config
   ;; More functions
   ;; @see https://karthinks.com/software/simple-folding-with-hideshow/
