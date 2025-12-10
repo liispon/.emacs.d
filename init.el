@@ -161,7 +161,7 @@ Avoid placing large files like EAF in `site-lisp` to prevent slow startup."
 ;; install node
 ;; M-x copilot-install-server
 ;; M-x copilot-login
-(require 'init-copilot)
+;; (require 'init-copilot)
 (require 'init-misc)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
