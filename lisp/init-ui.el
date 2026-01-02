@@ -61,10 +61,16 @@
 (setq fancy-splash-image centaur-logo)
 
 ;; Title
-(setq frame-title-format '("Centaur Emacs - %b")
+;; l1l
+(setq frame-title-format '("Emacs - %b")
       icon-title-format frame-title-format)
 
-(when (or sys/mac-ns-p sys/mac-port-p)
+;; l1l
+(when (or sys/mac-x-p sys/mac-ns-p sys/mac-port-p)
+  (add-to-list 'default-frame-alist '(width  . 136))
+  (add-to-list 'default-frame-alist '(height . 69))
+  (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+  (add-to-list 'default-frame-alist '(ns-appearance . dark))
   (add-hook 'server-after-make-frame-hook
             (lambda ()
               (if (display-graphic-p)
@@ -87,13 +93,14 @@
 
 ;; Theme
 (if (centaur-compatible-theme-p centaur-theme)
-    ;; Excellent themes
-    (use-package doom-themes
-      :functions (centaur-compatible-theme-p
-                  centaur-load-theme
-                  doom-themes-visual-bell-config
-                  refresh-ns-appearance)
-      :init (centaur-load-theme centaur-theme t)
+      ;; (use-package color-theme-sanityinc-tomorrow)
+      ;; Excellent themes
+      (use-package doom-themes
+        :functions (centaur-compatible-theme-p
+                    centaur-load-theme
+                    doom-themes-visual-bell-config
+                    refresh-ns-appearance)
+        :init (centaur-load-theme centaur-theme t)
       :config (doom-themes-visual-bell-config))
   (progn
     (message "The current theme `%s' may be incompatible" centaur-theme)
@@ -293,10 +300,10 @@
 ;; Show line numbers
 (use-package display-line-numbers
   :ensure nil
-  :hook ((prog-mode
-          conf-mode toml-ts-mode
-          yaml-mode yaml-ts-mode)
-         . display-line-numbers-mode)
+  ;;:hook ((prog-mode
+  ;;        conf-mode toml-ts-mode
+  ;;        yaml-mode yaml-ts-mode)
+  ;;       . display-line-numbers-mode)
   :init (setq display-line-numbers-width-start t))
 
 ;; Suppress GUI features
