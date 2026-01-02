@@ -31,7 +31,9 @@
 ;;; Code:
 
 (defconst centaur-homepage
-  "https://github.com/seagle0128/.emacs.d"
+  ;; l1l
+  ;; "https://github.com/seagle0128/.emacs.d"
+  "https://github.com/liispon/.emacs.d"
   "The Github page of Centaur Emacs.")
 
 (defconst centaur-custom-example-file
