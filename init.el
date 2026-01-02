@@ -149,5 +149,16 @@ as recursive scanning slows down startup."
 (require 'init-elixir)
 (require 'init-web)
 
+;; l1l
+;; copilot, prerequisits
+;; 1. install node
+;; 2. M-x copilot-install-server
+;; 3. M-x copilot-login
+;; (require 'init-copilot)
+
+;; l1l
+(require 'init-misc)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; init.el ends here
+;; (put 'upcase-region 'disabled nil)
