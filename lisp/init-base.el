@@ -50,10 +50,16 @@
     (setq w32-lwindow-modifier 'super     ; Left Windows key
           w32-apps-modifier 'hyper)       ; Menu/App key
     (w32-register-hot-key [s-t]))
+   ;; l1l
+   (sys/mac-ns-p
+    ;; Compatible with Emacs Mac port
+    (setq mac-option-modifier 'super
+          mac-command-modifier 'meta))
    (sys/mac-port-p
     ;; Compatible with Emacs Mac port
-    (setq mac-option-modifier 'meta
-          mac-command-modifier 'super)
+    ;; l1l
+    (setq mac-option-modifier 'super
+          mac-command-modifier 'meta)
     (bind-keys ([(super a)] . mark-whole-buffer)
                ([(super c)] . kill-ring-save)
                ([(super l)] . goto-line)
@@ -215,7 +221,9 @@
       adaptive-fill-first-line-regexp "^* *$"
       sentence-end "\\([。！？]\\|……\\|[.?!][]\"')}]*\\($\\|[ \t]\\)\\)[ \t\n]*"
       sentence-end-double-space nil
-      word-wrap-by-category t)
+      word-wrap-by-category t
+      ;; l1l
+      warning-minimum-level :error)
 
 ;; Asynchronous processing
 (use-package async
@@ -281,9 +289,13 @@
 ;; Global keybindings
 (bind-keys ("s-r"     . revert-buffer-quick)
            ("C-x K"   . delete-this-file)
-           ("C-c C-l" . reload-init-file))
+           ("C-c C-l" . reload-init-file)
+            ;; l1l
+           ("C-; C-;" . comment-or-uncomment-region)
+           ("C-c l" . pwd)
+           ("M-`" . other-frame)
+           ("<f5>" . revert-buffer))
 
 (provide 'init-base)
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; init-base.el ends here
