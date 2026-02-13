@@ -138,8 +138,9 @@
             woman-mode-map xref--xref-buffer-mode-map)
   :functions embark-dwim
   :bind (("M-o"     . link-hint-open-link)
-         ("C-c l o" . link-hint-open-link)
-         ("C-c l c" . link-hint-copy-link))
+         ;; ("C-c l o" . link-hint-open-link)
+         ;; ("C-c l c" . link-hint-copy-link)
+         )
   :init
   (with-eval-after-load 'compile
     (bind-key "o" #'link-hint-open-link compilation-mode-map))
