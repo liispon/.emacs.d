@@ -47,7 +47,7 @@
            :map dashboard-mode-map
            ("H" . browse-homepage)
            ("O" . restore-session)
-           ("S" . open-setting-files)
+           ("S" . find-custom-file)
            ("U" . update-config-and-packages)
            ("q" . quit-dashboard))
     :hook (dashboard-mode . (lambda ()
@@ -90,7 +90,7 @@
           dashboard-navigator-buttons
           `(((,(when (icons-displayable-p)
                  (nerd-icons-mdicon "nf-md-github" :height 1.4))
-              "Homepage" "Visit homepage (H)"
+              "Homepage" "Browse homepage (H)"
               (lambda (&rest _) (browse-url centaur-homepage)))
              (,(when (icons-displayable-p)
                  (nerd-icons-mdicon "nf-md-backup_restore" :height 1.5))
@@ -98,8 +98,8 @@
               (lambda (&rest _) (restore-session)))
              (,(when (icons-displayable-p)
                  (nerd-icons-mdicon "nf-md-tools" :height 1.3))
-              "Settings" "Open setting files (S)"
-              (lambda (&rest _) (open-setting-files)))
+              "Settings" "Open custom file (S)"
+              (lambda (&rest _) (find-file custom-file)))
              (,(when (icons-displayable-p)
                  (nerd-icons-mdicon "nf-md-update" :height 1.3))
               "Update" "Update Centaur Emacs (U)"
@@ -134,11 +134,6 @@
         (when (bound-and-true-p tabspaces-mode)
           (tabspaces-restore-session)))
 
-      (defun open-setting-files ()
-        "Open setting files."
-        (interactive)
-        (quit-dashboard)
-        (find-custom-file))
 
       (defun open-dashboard ()
         "Display dashboard in maximized window."
