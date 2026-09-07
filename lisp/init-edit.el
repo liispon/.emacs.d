@@ -482,6 +482,7 @@
 
 ;; Hanlde minified code
 (use-package so-long
+  :ensure nil
   :hook (after-init . global-so-long-mode))
 
 (provide 'init-edit)
