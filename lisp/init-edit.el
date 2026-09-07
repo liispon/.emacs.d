@@ -337,18 +337,42 @@
 
 ;; A unified method to fold and unfold text
 (use-package kirigami
+  :pretty-hydra
+  ((:title (pretty-hydra-title "Kirigami" 'octicon "nf-oct-fold")
+    :color amaranth :quit-key ("q" "C-g"))
+   ("Fold"
+    (("o" kirigami-open-fold "open fold at point")
+     ("O" kirigami-open-fold-rec "open fold recursively")
+     ("r" kirigami-open-folds "open all folds")
+     ("c" kirigami-close-fold "close fold at point")
+     ("m" kirigami-close-folds "close all folds")
+     ("a" kirigami-toggle-fold "toggle fold at point"))
+    "Move"
+    (("C-a" mwim-beginning-of-code-or-line "⭰")
+     ("C-e" mwim-end-of-code-or-line "⭲")
+     ("C-b" backward-char "←")
+     ("C-n" next-line "↓")
+     ("C-p" previous-line "↑")
+     ("C-f" forward-char "→")
+     ("C-v" pager-page-down "↘")
+     ("M-v" pager-page-up "↖")
+     ("M-<" beginning-of-buffer "⭶")
+     ("M->" end-of-buffer "⭸"))))
   :custom
   ;; Add Kirigami to the menu bar and context menu (`context-menu-mode').
   (kirigami-show-menu-bar t)
   (kirigami-show-context-menu t)
   :bind (:map kirigami-mode-map
+         ("C-~" . kirigami-hydra/body)
+         ("M-RET" . kirigami-hydra/body)
+
          ("C-c z o" . kirigami-open-fold)     ; Open fold at point
          ("C-c z O" . kirigami-open-fold-rec) ; Open fold recursively
          ("C-c z r" . kirigami-open-folds)    ; Open all folds
          ("C-c z c" . kirigami-close-fold)    ; Close fold at point
          ("C-c z m" . kirigami-close-folds)   ; Close all folds
          ("C-c z a" . kirigami-toggle-fold))  ; Toggle fold at point
-  :hook after-init)
+  :hook (after-init . kirigami-global-mode))
 
 ;; Flexible text folding
 (use-package hideshow
@@ -358,8 +382,8 @@
     :color amaranth :quit-key ("q" "C-g"))
    ("Fold"
     (("t" hs-toggle-all "toggle all")
-     ("a" hs-show-all "show all" :exit t)
-     ("i" hs-hide-all "hide all" :exit t)
+     ("a" hs-show-all "show all")
+     ("i" hs-hide-all "hide all")
      ("g" hs-toggle-hiding "toggle hiding")
      ("c" hs-cycle "cycle block")
      ("s" hs-show-block "show block")
