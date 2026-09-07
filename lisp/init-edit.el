@@ -335,6 +335,21 @@
   :ensure nil
   :hook (prog-mode minibuffer-setup))
 
+;; A unified method to fold and unfold text
+(use-package kirigami
+  :custom
+  ;; Add Kirigami to the menu bar and context menu (`context-menu-mode').
+  (kirigami-show-menu-bar t)
+  (kirigami-show-context-menu t)
+  :bind (:map kirigami-mode-map
+         ("C-c z o" . kirigami-open-fold)     ; Open fold at point
+         ("C-c z O" . kirigami-open-fold-rec) ; Open fold recursively
+         ("C-c z r" . kirigami-open-folds)    ; Open all folds
+         ("C-c z c" . kirigami-close-fold)    ; Close fold at point
+         ("C-c z m" . kirigami-close-folds)   ; Close all folds
+         ("C-c z a" . kirigami-toggle-fold))  ; Toggle fold at point
+  :hook after-init)
+
 ;; Flexible text folding
 (use-package hideshow
   :ensure nil
